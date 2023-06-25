@@ -5,4 +5,4 @@ The Universal Ticket Service is an API that provides CRUD (Create, Read, Update,
 Overall, the Universal Ticket Service API simplifies the process of managing tickets by offering a comprehensive set of CRUD operations. It empowers organizations to streamline their ticketing systems, enhance productivity, and effectively address customer or internal support needs.
 
 
-![soviet.jpg](..%2F..%2FPictures%2Fsoviet.jpg)
+![soviet.jpg](src/main/resources/images/soviet.jpg)
