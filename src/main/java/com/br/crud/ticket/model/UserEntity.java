@@ -15,36 +15,26 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 
-@DynamoDBTable(tableName = "r00_ticket")
-public class TicketEntityV2 {
+@DynamoDBTable(tableName = "r00_user")
+public class UserEntity {
 
     @DynamoDBHashKey
     private String userId;
 
-    @DynamoDBRangeKey
     @DynamoDBAttribute
-    private Long openedAt;
+    private Long createdAt;
 
     @DynamoDBAttribute
-    private Long closedAt;
-
-    @DynamoDBAttribute
-    private String description;
-
-    @DynamoDBAttribute
-    private String openedBy;
-
-    @DynamoDBAttribute
-    private String closedBy;
+    private Boolean isActive;
 
     @PrePersist
     private void prePersist() {
         if (userId == null) {
             userId = UUID.randomUUID().toString();
         }
-        if (openedAt == null){
+        if (createdAt == null){
             Date date = new Date();
-            openedAt = date.getTime();
+            createdAt = date.getTime();
         }
     }
 }
