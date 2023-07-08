@@ -1,6 +1,6 @@
 package com.br.crud.ticket.controller;
 
-import com.br.crud.ticket.model.TicketEntity;
+import com.br.crud.ticket.model.TicketEntityV1;
 import com.br.crud.ticket.service.TicketService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +21,8 @@ public class TicketController {
     }
 
     @GetMapping("/ticket")
-    public ResponseEntity<TicketEntity> getTicket(@PathParam("id") String id){
-        TicketEntity ticket = ticketService.getTicket(id);
+    public ResponseEntity<TicketEntityV1> getTicket(@PathParam("id") String id){
+        TicketEntityV1 ticket = ticketService.getTicket(id);
         if(ticket != null)
             return ResponseEntity.ok(ticket);
         else {
@@ -31,8 +31,8 @@ public class TicketController {
     }
 
     @PostMapping("/ticket")
-    public ResponseEntity<TicketEntity> save(@RequestBody TicketEntity ticketEntity){
-        TicketEntity savedTicket = ticketService.save(ticketEntity);
+    public ResponseEntity<TicketEntityV1> save(@RequestBody TicketEntityV1 ticketEntityV1){
+        TicketEntityV1 savedTicket = ticketService.save(ticketEntityV1);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedTicket);
     }
 }

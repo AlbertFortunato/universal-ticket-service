@@ -1,10 +1,8 @@
 package com.br.crud.ticket.service;
 
-import com.br.crud.ticket.model.TicketEntity;
+import com.br.crud.ticket.model.TicketEntityV1;
 import com.br.crud.ticket.repository.TicketRepository;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class TicketService {
@@ -17,12 +15,12 @@ public class TicketService {
 
 
     //Realiza a consulta do ID do ticket
-    public TicketEntity getTicket(String id){
+    public TicketEntityV1 getTicket(String id){
         return repository.findById(id).orElse(null);
     }
 
     //Realiza o cadastro do ticket
-    public TicketEntity save(TicketEntity ticketEntity){
-        return repository.save(ticketEntity);
+    public TicketEntityV1 save(TicketEntityV1 ticketEntityV1){
+        return repository.save(ticketEntityV1);
     }
 }

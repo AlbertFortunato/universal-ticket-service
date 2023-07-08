@@ -12,7 +12,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "ticket")
-public class TicketEntity {
+public class TicketEntityV1 {
 
     @Id
     @Column(length = 36)
