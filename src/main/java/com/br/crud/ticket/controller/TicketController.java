@@ -1,6 +1,7 @@
 package com.br.crud.ticket.controller;
 
-import com.br.crud.ticket.model.TicketEntity;
+import com.br.crud.ticket.model.TicketEntityV1;
+import com.br.crud.ticket.model.TicketEntityV2;
 import com.br.crud.ticket.service.TicketService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,20 +20,22 @@ public class TicketController {
     public TicketController(TicketService ticketService) {
         this.ticketService = ticketService;
     }
-
-    @GetMapping("/ticket")
-    public ResponseEntity<TicketEntity> getTicket(@PathParam("id") String id){
-        TicketEntity ticket = ticketService.getTicket(id);
-        if(ticket != null)
-            return ResponseEntity.ok(ticket);
-        else {
+//
+@GetMapping("/ticket")
+public ResponseEntity<TicketEntityV2> getTicket(@PathParam("userId") String userId,
+                                                @PathParam("openedAt") Long openedAt) {
+    TicketEntityV2 ticket = ticketService.getTicket(userId, openedAt);
+    if (ticket != null) {
+        return ResponseEntity.ok(ticket);
+    } else {
         return ResponseEntity.notFound().build();
-        }
     }
+}
+
 
     @PostMapping("/ticket")
-    public ResponseEntity<TicketEntity> save(@RequestBody TicketEntity ticketEntity){
-        TicketEntity savedTicket = ticketService.save(ticketEntity);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedTicket);
+    public ResponseEntity<Void> save(@RequestBody TicketEntityV2 ticketEntityV2){
+        ticketService.createTicket(ticketEntityV2);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }
