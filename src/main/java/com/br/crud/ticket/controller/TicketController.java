@@ -21,15 +21,17 @@ public class TicketController {
         this.ticketService = ticketService;
     }
 //
-//    @GetMapping("/ticket")
-//    public ResponseEntity<TicketEntityV1> getTicket(@PathParam("id") String id){
-//        TicketEntityV1 ticket = ticketService.getTicket(id);
-//        if(ticket != null)
-//            return ResponseEntity.ok(ticket);
-//        else {
-//        return ResponseEntity.notFound().build();
-//        }
-//    }
+@GetMapping("/ticket")
+public ResponseEntity<TicketEntityV2> getTicket(@PathParam("userId") String userId,
+                                                @PathParam("openedAt") Long openedAt) {
+    TicketEntityV2 ticket = ticketService.getTicket(userId, openedAt);
+    if (ticket != null) {
+        return ResponseEntity.ok(ticket);
+    } else {
+        return ResponseEntity.notFound().build();
+    }
+}
+
 
     @PostMapping("/ticket")
     public ResponseEntity<Void> save(@RequestBody TicketEntityV2 ticketEntityV2){

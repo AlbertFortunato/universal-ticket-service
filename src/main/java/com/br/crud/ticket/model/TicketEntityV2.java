@@ -18,33 +18,32 @@ import java.util.Date;
 @DynamoDBTable(tableName = "r00_ticket")
 public class TicketEntityV2 {
 
-    @DynamoDBHashKey
+    @DynamoDBHashKey(attributeName = "userId")
     private String userId;
 
-    @DynamoDBRangeKey
-    @DynamoDBAttribute
+    @DynamoDBRangeKey(attributeName = "openedAt")
     private Long openedAt;
 
-    @DynamoDBAttribute
+    @DynamoDBAttribute(attributeName = "closedAt")
     private Long closedAt;
 
-    @DynamoDBAttribute
+    @DynamoDBAttribute(attributeName = "description")
     private String description;
 
-    @DynamoDBAttribute
+    @DynamoDBAttribute(attributeName = "openedBy")
     private String openedBy;
 
-    @DynamoDBAttribute
+    @DynamoDBAttribute(attributeName = "closedBy")
     private String closedBy;
 
+    @DynamoDBIgnore
     @PrePersist
     private void prePersist() {
         if (userId == null) {
             userId = UUID.randomUUID().toString();
         }
         if (openedAt == null){
-            Date date = new Date();
-            openedAt = date.getTime();
+            openedAt = new Date().getTime();
         }
     }
 }

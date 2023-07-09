@@ -34,7 +34,7 @@ public class DynamoDBConfig {
     private AmazonDynamoDB amazonDynamoDb() {
         return AmazonDynamoDBClientBuilder.standard()
                 .withEndpointConfiguration(
-                        new AwsClientBuilder.EndpointConfiguration(amazonDynamoDBEndpoint, "us-east-1")
+                        new AwsClientBuilder.EndpointConfiguration(amazonDynamoDBEndpoint, "sa-east-1")
                 )
                 .withCredentials(amazonDynamoDBCredentials()).build();
     }
