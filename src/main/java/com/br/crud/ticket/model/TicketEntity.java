@@ -1,24 +1,21 @@
 package com.br.crud.ticket.model;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import java.util.Date;
 
 @Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-
 @DynamoDBTable(tableName = "r00_ticket")
 public class TicketEntity {
 
-    @DynamoDBHashKey(attributeName = "userId")
-    private String userId;
+    @DynamoDBHashKey(attributeName = "openedBy")
+    private String openedBy;
 
     @DynamoDBRangeKey(attributeName = "openedAt")
     private Long openedAt;
+
+    @DynamoDBAttribute(attributeName = "owneredBy")
+    private String owneredBy;
 
     @DynamoDBAttribute(attributeName = "closedAt")
     private Long closedAt;
@@ -26,10 +23,22 @@ public class TicketEntity {
     @DynamoDBAttribute(attributeName = "description")
     private String description;
 
-    @DynamoDBAttribute(attributeName = "openedBy")
-    private String openedBy;
+    public TicketEntity(
+        String openedBy, 
+        String description
+        ) {
+            this.openedBy = openedBy;
+            this.description = description;
+            this.openedAt = new Date().getTime();
+    }
 
-    @DynamoDBAttribute(attributeName = "closedBy")
-    private String closedBy;
+    public void closeTicket(){
+        this.closedAt = new Date().getTime();
+    }
 
+    public void changeOwner(
+        String owner
+    ){
+        this.owneredBy = owner;
+    }
 }
