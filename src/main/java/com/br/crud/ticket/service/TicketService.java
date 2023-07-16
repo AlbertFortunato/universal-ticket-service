@@ -16,7 +16,7 @@ public class TicketService {
 
 
     //Realiza o cadastro do ticket
-    public void createTicket(TicketEntity ticketEntity){
+    public void saveTicket(TicketEntity ticketEntity){
         mapper.save(ticketEntity);
     }
 

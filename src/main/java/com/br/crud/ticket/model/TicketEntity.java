@@ -32,6 +32,32 @@ public class TicketEntity {
             this.openedAt = new Date().getTime();
     }
 
+    public TicketEntity(
+        String openedBy, 
+        Long openedAt, 
+        String owneredBy, 
+        String description
+        ) {
+            this.openedBy = openedBy;
+            this.openedAt = openedAt;
+            this.owneredBy = owneredBy;
+            this.description = description;
+    }
+
+    public TicketEntity(
+        String openedBy, 
+        Long openedAt,
+        Long closedAt,
+        String owneredBy, 
+        String description
+        ) {
+            this.openedBy = openedBy;
+            this.openedAt = openedAt;
+            this.owneredBy = owneredBy;
+            this.description = description;
+            this.closedAt = closedAt;
+    }
+
     public void closeTicket(){
         this.closedAt = new Date().getTime();
     }
