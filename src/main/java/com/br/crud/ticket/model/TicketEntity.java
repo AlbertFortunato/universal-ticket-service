@@ -2,9 +2,14 @@ package com.br.crud.ticket.model;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.Date;
 
 @Getter
+@Setter
+@NoArgsConstructor
 @DynamoDBTable(tableName = "r00_ticket")
 public class TicketEntity {
 

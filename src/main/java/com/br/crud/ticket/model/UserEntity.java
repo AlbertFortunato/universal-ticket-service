@@ -20,7 +20,4 @@ public class UserEntity {
     @DynamoDBAttribute
     private Long createdAt;
 
-    @DynamoDBAttribute
-    private Boolean isActive;
-
 }
