@@ -22,12 +22,10 @@ public class TicketService {
     }
 
 
-    //Realiza o cadastro do ticket
     public void saveTicket(TicketEntity ticketEntity){
         mapper.save(ticketEntity);
     }
 
-    //Realiza a consulta do ticket
     public TicketEntity getTicket(String openedBy, Long openedAt) {
 
     Map<String, AttributeValue> eav = new HashMap<String, AttributeValue>();

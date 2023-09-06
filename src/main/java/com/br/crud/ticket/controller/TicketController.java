@@ -49,7 +49,7 @@ public ResponseEntity<TicketEntity> getTicket(
         TicketEntity ticket = ticketService.getTicket(openedBy, openedAt);
         ticket.closeTicket();
         ticketService.saveTicket(ticket);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     @PostMapping("/ticket")

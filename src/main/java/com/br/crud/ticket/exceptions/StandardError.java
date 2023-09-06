@@ -11,7 +11,7 @@ import java.time.Instant;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class StandarError {
+public class StandardError {
 
     private Long timestamp;
     private Integer status;
@@ -19,7 +19,7 @@ public class StandarError {
     private String message;
     private String path;
 
-    public StandarError(Instant timestamp, Integer status, String error, String message) {
+    public StandardError(Instant timestamp, Integer status, String error, String message) {
         this.timestamp = timestamp.toEpochMilli();
         this.status = status;
         this.error = error;

@@ -12,8 +12,8 @@ import java.time.Instant;
 public class ControllerExceptionHandler {
 
     @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<StandarError> parametroVazio(HttpServletRequest request){
-        StandarError error = new StandarError();
+    public ResponseEntity<StandardError> emptyParamater(HttpServletRequest request){
+        StandardError error = new StandardError();
         error.setTimestamp(Instant.now().toEpochMilli());
         error.setStatus(HttpStatus.BAD_REQUEST.value());
         error.setError("Parâmetro inválido");
