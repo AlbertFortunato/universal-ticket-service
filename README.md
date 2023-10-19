@@ -1,4 +1,4 @@
-![soviet.png](src/main/resources/images/soviet.png)
+![soviet.png](ticket-management/src/main/resources/images/soviet.png)
 
 # The Universal Ticket Service :ticket:
 
@@ -44,7 +44,7 @@ aws dynamodb create-table \
     --attribute-definitions AttributeName=openedBy,AttributeType=S AttributeName=openedAt,AttributeType=N \
     --key-schema AttributeName=openedBy,KeyType=HASH AttributeName=openedAt,KeyType=RANGE \
     --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 \
-    --region sa-east-1 \
+    --region us-east-1 \
     --endpoint http://localhost:8000/
 ```
 
