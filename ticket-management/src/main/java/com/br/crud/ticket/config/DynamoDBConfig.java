@@ -23,6 +23,10 @@ public class DynamoDBConfig {
     @Value("${amazon.aws.secret-key}")
     private String amazonAWSSecretKey;
 
+    @Value("${amazon.aws.region}")
+    private String amazonAWSRegion;
+
+
     @Bean
     public DynamoDBMapper dynamoDBMapper(){
         return new DynamoDBMapper(amazonDynamoDb());
@@ -33,7 +37,7 @@ public class DynamoDBConfig {
                 .withEndpointConfiguration(
                         new AwsClientBuilder.EndpointConfiguration(
                                 amazonDynamoDBEndpoint,
-                                "sa-east-1"
+                                amazonAWSRegion
                         )
                 )
                 .withCredentials(

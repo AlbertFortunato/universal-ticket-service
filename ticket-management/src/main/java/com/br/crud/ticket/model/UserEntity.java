@@ -5,19 +5,63 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import javax.persistence.*;
+import java.util.Date;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
-@DynamoDBTable(tableName = "r00_user")
+@Entity
+@Table(name = "r01_users")
 public class UserEntity {
 
-    @DynamoDBHashKey
-    private String userId;
+    @Id
+    @GeneratedValue
+    private java.util.UUID id;
 
-    @DynamoDBAttribute
-    private Long createdAt;
+    @Column
+    private String UserName;
+
+    @Column
+    private String Password;
+
+    @Column
+    private String Email;
+
+    @Column
+    private String FirstName;
+
+    @Column
+    private String LastName;
+
+    @Column
+    private String Address;
+
+    @Column
+    private String City;
+
+    @Column
+    private String State;
+
+    @Column
+    private String Country;
+
+    @Column
+    private String PostalCode;
+
+    @Column
+    private Date CreatedAt;
+
+    @Column
+    private Date UpdatedAt;
+
+    // TODO : Make enum for this column
+    @Column
+    private String Status;
+
+    // TODO : Make enum for this column
+    @Column
+    private String Role;
 
 }
