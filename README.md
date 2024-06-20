@@ -45,7 +45,7 @@ aws dynamodb create-table \
     --key-schema AttributeName=openedBy,KeyType=HASH AttributeName=openedAt,KeyType=RANGE \
     --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 \
     --region us-east-1 \
-    --endpoint http://localhost:8000/
+    --endpoint http://localhost:4566
 ```
 
 ```shell
@@ -54,13 +54,14 @@ aws dynamodb create-table \
     --attribute-definitions AttributeName=userId,AttributeType=S \
     --key-schema AttributeName=userId,KeyType=HASH \
     --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 \
-    --region sa-east-1 \
-    --endpoint http://localhost:8000/
+    --region us-east-1 \
+    --endpoint http://localhost:4566
 ```
 
 ```shell
 aws dynamodb scan \
     --table-name r00_ticket \
-    --region sa-east-1 \
-    --endpoint http://localhost:8000/
-```
+    --region us-east-1 \
+    --endpoint http://localhost:4566
+````
+`
